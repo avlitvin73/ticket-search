@@ -1,4 +1,4 @@
-import { Cinema } from "@/redux/features/films copy";
+import { Cinema } from "@/redux/features/cinema";
 import { ChangeEvent, FC, useState } from "react";
 import styles from "./Select.module.css";
 

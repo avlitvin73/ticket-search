@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { cartReducer } from "./features/cart";
 import { filmReducer } from "./features/films";
-import { cinemaReducer } from "./features/films copy";
+import { cinemaReducer } from "./features/cinema";
 
 
 export const store = configureStore({

@@ -7,7 +7,7 @@ import { Film, fetchFilmList } from "@/redux/features/films";
 import { AppStore } from "@/redux/store";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import TicketList from "@/components/TicketList/TicketList";
-import { fetchCinemaList } from "@/redux/features/films copy";
+import { fetchCinemaList } from "@/redux/features/cinema";
 
 type AppDispatch = AppStore["dispatch"];
 

@@ -2,7 +2,7 @@ import { ChangeEvent, Dispatch, FC, SetStateAction } from "react";
 import styles from "./Sidebar.module.css";
 import Input from "../Input/Input";
 import Select from "../Select/Select";
-import { Cinema } from "@/redux/features/films copy";
+import { Cinema } from "@/redux/features/cinema";
 
 interface ISidebar {
   genres: string[][];

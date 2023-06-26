@@ -44,7 +44,6 @@ const TicketCard: FC<ITicketCard> = ({ film, showDeleteButton }) => {
     setModalToggle((isOpen) => !isOpen);
   };
 
-  console.log('showDeleteButton', showDeleteButton)
   return (
     <div className={styles.container}>
       <Image
