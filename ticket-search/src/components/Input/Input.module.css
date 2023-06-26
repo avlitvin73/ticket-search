@@ -1,0 +1,13 @@
+.filter {
+  height: 40px;
+  width: 22.5rem;
+  border-radius: 8px;
+  border: 1px solid #e1e3e6;
+  margin-bottom: 1rem;
+  text-indent: 1rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  margin-bottom: 5px;
+}

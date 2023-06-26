@@ -24,6 +24,7 @@ const Sidebar: FC<ISidebar> = ({
       <h3 className={styles.title}>Фильтр поиска</h3>
       <fieldset className={styles.inputGroup}>
         <Input
+          label="Название"
           onChange={(e) => {
             onChangeTitle(e);
           }}

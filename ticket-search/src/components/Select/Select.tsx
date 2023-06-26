@@ -1,5 +1,6 @@
 import { Cinema } from "@/redux/features/films copy";
 import { ChangeEvent, FC, useState } from "react";
+import styles from "./Select.module.css";
 
 interface ISelect {
   label: string;
@@ -11,30 +12,45 @@ interface ISelect {
 
 const Select: FC<ISelect> = ({
   label,
+  defaultOption,
   genreOptions,
   cinemaOptions,
   onChange,
 }) => {
   return (
-    <select
-      onChange={(e) => {
-        onChange(e);
-      }}
-    >
-      <option>{label}</option>
-      {genreOptions?.length &&
-        genreOptions.map((opt) => (
-          <option key={opt[0]} value={opt[0]}>
-            {opt[1]}
-          </option>
-        ))}
-      {cinemaOptions?.length &&
-        cinemaOptions.map((opt) => (
-          <option key={opt.id} value={JSON.stringify(opt.movieIds)}>
-            {opt.name}
-          </option>
-        ))}
-    </select>
+    <>
+      <label className={styles.label}>{label}</label>
+
+      <select
+        className={styles.filter}
+        onChange={(e) => {
+          onChange(e);
+        }}
+      >
+        <optgroup className={styles.optgroup}>
+          <option className={styles.option}>{defaultOption}</option>
+        </optgroup>
+        {genreOptions?.length &&
+          genreOptions.map((opt) => (
+            <optgroup key={opt[0]} className={styles.optgroup}>
+              <option className={styles.option} value={opt[0]}>
+                {opt[1]}
+              </option>
+            </optgroup>
+          ))}
+        {cinemaOptions?.length &&
+          cinemaOptions.map((opt) => (
+            <optgroup key={opt.id} className={styles.optgroup}>
+              <option
+                className={styles.option}
+                value={JSON.stringify(opt.movieIds)}
+              >
+                {opt.name}
+              </option>
+            </optgroup>
+          ))}
+      </select>
+    </>
   );
 };
 
