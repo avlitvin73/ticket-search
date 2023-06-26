@@ -3,6 +3,25 @@ import axios from "axios";
 
 const baseUrl = "http://127.0.0.1:3001/api";
 
+export type Review = {
+  id: string;
+  name: string;
+  text: string;
+  rating: number;
+};
+
+export type Film = {
+  title: string;
+  posterUrl: string;
+  releaseYear: number;
+  description: string;
+  genre: string;
+  id: string;
+  rating: number;
+  director: string;
+  reviewIds: Review["id"][];
+};
+
 export const fetchFilmList = createAsyncThunk(
   "api/movies",
   (cinemaId: string) =>

@@ -4,8 +4,9 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchFilmList } from "@/redux/features/films";
+import { Film, fetchFilmList } from "@/redux/features/films";
 import { AppStore } from "@/redux/store";
+import TicketCard from "@/components/TicketCard/TicketCard";
 
 type AppDispatch = AppStore["dispatch"]
 
@@ -17,16 +18,14 @@ export default function Home() {
     dispatch( fetchFilmList("api/movies"));
   },[])
   return (
+    <Sidebar />
       <main className={styles.main}>
         <p>API status {filmList.status}</p>
         <div>
           {filmList.status !== "loading" &&
             filmList.data.length &&
-            filmList.data.map((film: any) => (
-              <div key={film.id} style={{ display: "flex" }}>
-                <p>title: {film.title}</p>
-                <p>genre: {film.genre}</p>
-              </div>
+            filmList.data.map((film: Film) => (
+              <TicketCard key={film.id} film={film}/>
             ))}
         </div>
       </main>
