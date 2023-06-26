@@ -13,7 +13,9 @@ export default function Header() {
     <header className={styles.header}>
       <Link href="/">Билетопоиск</Link>
       <Link href="/cart" className={styles.basket}>
-        <Button type={BUTTON_TYPE.TEXT} text={cart.amount} />
+        {Boolean(cart.amount) && (
+          <Button type={BUTTON_TYPE.TEXT} text={cart.amount} />
+        )}
         <Image src="/basket.svg" alt="cart" width="32" height="32" />
       </Link>
     </header>

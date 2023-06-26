@@ -5,6 +5,7 @@
   background-color: #fff;
   height: 80vh;
   margin-right: 2rem;
+  position: fixed;
 }
 
 .title {

@@ -1,0 +1,15 @@
+.button {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: .25rem;
+    background-color: #FF5500;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button:disabled {
+    background-color: #FFA375;
+
+}

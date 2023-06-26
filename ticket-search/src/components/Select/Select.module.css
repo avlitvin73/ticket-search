@@ -6,10 +6,6 @@
   margin-bottom: 1rem;
   text-indent: 1rem;
   color: #999fa6;
-
-  -moz-appearance: none; /* Firefox */
-  -webkit-appearance: none; /* Safari and Chrome */
-  appearance: none;
 }
 
 .label {

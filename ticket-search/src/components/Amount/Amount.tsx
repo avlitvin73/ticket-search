@@ -11,9 +11,19 @@ interface IAmount {
 const Amount: FC<IAmount> = ({ amount, increment, decrement }) => {
   return (
     <div className={styles.buttons}>
-      <Button type={BUTTON_TYPE.ICON} icon="/minus.svg" onClick={decrement} />
+      <Button
+        type={BUTTON_TYPE.ICON}
+        icon="/minus.svg"
+        disable={!Boolean(amount)}
+        onClick={decrement}
+      />
       {amount}
-      <Button type={BUTTON_TYPE.ICON} icon="/plus.svg" onClick={increment} />
+      <Button
+        type={BUTTON_TYPE.ICON}
+        icon="/plus.svg"
+        disable={amount >= 30}
+        onClick={increment}
+      />
     </div>
   );
 };

@@ -11,10 +11,16 @@ import RemoveButton from "../RemoveButton/RemoveButton";
 
 interface ITicketCard {
   film: Film;
-  showDeleteButton: boolean
+  showDeleteButton: boolean;
 }
 
 const TicketCard: FC<ITicketCard> = ({ film, showDeleteButton }) => {
+  let genre = ''
+  if (film.genre === 'action') genre = "Боевик"
+  if (film.genre === 'comedy') genre = "Комедия"
+  if (film.genre === 'fantasy') genre = "Фэнтези"
+  if (film.genre === 'horror') genre = "Ужасы"
+
   const [showModal, setModalToggle] = useState(false);
   const ticketAmount = useSelector((state) =>
     selectTicketAmount(state, film.id)
@@ -26,7 +32,7 @@ const TicketCard: FC<ITicketCard> = ({ film, showDeleteButton }) => {
     dispatch(cartActions.increment(film.id));
   };
   const decrement = () => {
-    if (!showDeleteButton && ticketAmount === 1) toggleModal();
+    if (showDeleteButton && ticketAmount === 1) toggleModal();
     else dispatch(cartActions.decrement(film.id));
   };
 
@@ -38,26 +44,30 @@ const TicketCard: FC<ITicketCard> = ({ film, showDeleteButton }) => {
     setModalToggle((isOpen) => !isOpen);
   };
 
-
+  console.log('showDeleteButton', showDeleteButton)
   return (
     <div className={styles.container}>
-      <Image src={film.posterUrl} alt="poster" width="100" height="120" />
+      <Image
+        className={styles.img}
+        src={film.posterUrl}
+        alt="poster"
+        width="100"
+        height="120"
+      />
       <div className={styles.info}>
-          <div className={styles.description}>
-            <div className={styles.title}>
-              <Link href={"/movie/" + film.id}>{film.title}</Link>
-            </div>
-            <div className={styles.genre}>{film.genre}</div>
+        <div className={styles.description}>
+          <div className={styles.title}>
+            <Link href={"/movie/" + film.id}>{film.title}</Link>
           </div>
-          <Amount
-            amount={ticketAmount}
-            increment={increment}
-            decrement={decrement}
-          />
-          {showDeleteButton && (
-            <RemoveButton toggleModal={toggleModal} />
-          )}
+          <div className={styles.genre}>{genre}</div>
         </div>
+        <Amount
+          amount={ticketAmount}
+          increment={increment}
+          decrement={decrement}
+        />
+        {showDeleteButton && <RemoveButton toggleModal={toggleModal} />}
+      </div>
     </div>
   );
 };

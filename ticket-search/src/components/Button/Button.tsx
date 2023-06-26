@@ -10,13 +10,14 @@ export const enum BUTTON_TYPE {
 
 interface IButton {
   type: BUTTON_TYPE;
+  disable?: boolean;
   icon?: string;
   text?: string;
   onClick?: () => void;
 }
 
-const Button: FC<IButton> = ({ type, icon, text, onClick }) => {
-  let buttonClass = styles.button;
+const Button: FC<IButton> = ({ type, icon, disable,  text, onClick }) => {
+  let buttonClass;
   if (type === BUTTON_TYPE.DELETE) {
     buttonClass = styles.deleteButton;
   } else if (type === BUTTON_TYPE.ICON) {
@@ -25,7 +26,7 @@ const Button: FC<IButton> = ({ type, icon, text, onClick }) => {
     buttonClass = styles.textButton;
   }
   return (
-    <button className={buttonClass} onClick={onClick}>
+    <button className={`${styles.button} ${buttonClass}`} disabled={disable} onClick={onClick}>
       {icon ? <Image src={icon} alt="" width="12" height="12" /> : text || ""}
     </button>
   );

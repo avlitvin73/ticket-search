@@ -15,7 +15,7 @@ const genres = [
   ["action", "Боевик"],
   ["comedy", "Комедия"],
   ["fantasy", "Фэнтези"],
-  ["horror", "Хоррор"],
+  ["horror", "Ужасы"],
 ];
 
 export default function Home() {
