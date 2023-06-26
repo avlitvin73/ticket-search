@@ -12,16 +12,20 @@ import RemoveButton from "../RemoveButton/RemoveButton";
 interface ITicketCard {
   film: Film;
   showDeleteButton: boolean;
+  toggleModal?: () => void;
 }
 
-const TicketCard: FC<ITicketCard> = ({ film, showDeleteButton }) => {
-  let genre = ''
-  if (film.genre === 'action') genre = "Боевик"
-  if (film.genre === 'comedy') genre = "Комедия"
-  if (film.genre === 'fantasy') genre = "Фэнтези"
-  if (film.genre === 'horror') genre = "Ужасы"
+const TicketCard: FC<ITicketCard> = ({
+  film,
+  showDeleteButton,
+  toggleModal = () => null,
+}) => {
+  let genre = "";
+  if (film.genre === "action") genre = "Боевик";
+  if (film.genre === "comedy") genre = "Комедия";
+  if (film.genre === "fantasy") genre = "Фэнтези";
+  if (film.genre === "horror") genre = "Ужасы";
 
-  const [showModal, setModalToggle] = useState(false);
   const ticketAmount = useSelector((state) =>
     selectTicketAmount(state, film.id)
   );
@@ -38,10 +42,6 @@ const TicketCard: FC<ITicketCard> = ({ film, showDeleteButton }) => {
 
   const reset = () => {
     dispatch(cartActions.reset(film.id));
-  };
-
-  const toggleModal = () => {
-    setModalToggle((isOpen) => !isOpen);
   };
 
   return (

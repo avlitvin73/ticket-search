@@ -1,0 +1,19 @@
+.container {
+  padding-top: 7rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 89vh;
+}
+
+.total {
+  border-radius: 0.5rem;
+  background-color: #fff;
+  display: flex;
+  margin-left: 1.5rem;
+  padding: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styles from "./Amount.module.css";
-import Button, { BUTTON_TYPE } from "../Button/Button";
+import Button from "../Button/Button";
 
 interface IAmount {
   amount: number;
@@ -12,14 +12,14 @@ const Amount: FC<IAmount> = ({ amount, increment, decrement }) => {
   return (
     <div className={styles.buttons}>
       <Button
-        type={BUTTON_TYPE.ICON}
+        type={'icon'}
         icon="/minus.svg"
         disable={!Boolean(amount)}
         onClick={decrement}
       />
       {amount}
       <Button
-        type={BUTTON_TYPE.ICON}
+        type={'icon'}
         icon="/plus.svg"
         disable={amount >= 30}
         onClick={increment}

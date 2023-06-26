@@ -64,6 +64,7 @@ export default function Home() {
       {filmList.status !== "loading" && filmList.data.length && (
         <TicketList
           mainPage
+          marginLeft={27}
           filmList={
             filmTitle || filmGenre || filmCinema ? films : filmList.data
           }
