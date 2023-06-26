@@ -1,0 +1,11 @@
+.aside {
+  min-width: 25rem;
+  border-radius: .5rem;
+  padding: 1.5rem;
+  background-color: #fff;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 600;
+}

@@ -10,7 +10,7 @@ export const enum BUTTON_TYPE {
 
 interface IButton {
   type: BUTTON_TYPE;
-  icon: string;
+  icon?: string;
   text?: string;
   onClick?: () => void;
 }
